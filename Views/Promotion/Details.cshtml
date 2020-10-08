@@ -1,0 +1,58 @@
+﻿@model TP1_KarineDunberry.Models.Promotion
+
+@{
+    ViewData["Title"] = "Détail de la promotion";
+}
+
+
+
+
+<div class="row bgBlanc margin-sm">
+    <div class="col-12 col-md-6 colonne-padding">
+        <h1 class="txtJaune">Détails de la promotion</h1>
+        <dl>
+            <dt>
+                @Html.DisplayNameFor(model => model.IDPromotion)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.IDPromotion)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.TypePromotion)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.TypePromotion)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.TauxApplicable)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.TauxApplicable)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.DateDébut)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.DateDébut)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.DateFin)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.DateFin)
+            </dd>
+        </dl>
+        <div>
+            @Html.ActionLink("Modifier", "Edit", new { id = Model.IDPromotion }, new { @class = "txtJaune link-table" }) |
+            <a asp-action="Index" class="txtJaune link-table">Retour</a>
+        </div>
+    </div>
+    <div class="col-md-6 colonne-padding image img-promo-details"></div>
+</div>
+

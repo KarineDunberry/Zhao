@@ -1,0 +1,408 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap');
+
+/*optim images*/
+/*page contact*/
+
+
+
+/*Général*/
+body {
+    background-image: url("/images/jakub-kapusnak-unsplash-fond-noir-plats-asiatiques.png");
+    background-size: cover;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 16px;
+    letter-spacing: 1px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    --color-vert: #709074;
+    --color-blanc: white;
+    --color-jaune: #D2B48C;
+    --color-noir: black;
+    --rock-salt: 'Rock Salt', cursive, sans-serif;
+}
+
+.mainHome
+{
+    margin-bottom: 10%;
+}
+
+.colonne-padding
+{
+    padding: 50px;
+}
+
+.content
+{
+    flex-grow: 1 
+}
+
+footer 
+{
+    flex-shrink: 0;
+    font-size: 0.8em;
+    padding: 20px 10px 10px;
+}
+
+/*Titres*/
+
+.logoZhao 
+{
+    font-family: var(--rock-salt);
+    font-size: 8em;
+    padding: 100px 0px 30px;
+}
+
+h1
+{
+    font-family: var(--rock-salt);
+    font-size: 1.5em;
+    margin: 0px 0px 35px;
+}
+
+h2
+{
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 20px 0px;
+}
+
+.ouverture
+{
+    padding-top: 20px;
+}
+
+
+
+/*Couleurs*/
+.bgNoir 
+{
+    background-color: var(--color-noir);
+}
+
+.bgBlanc 
+{
+    background-color: var(--color-blanc);
+    border: 5px solid var(--color-vert);
+    height: 100%;
+    padding: 50px;
+}
+
+.bgVert 
+{
+    background-color: var(--color-vert);
+}
+
+.txtJaune 
+{
+    color: var(--color-jaune);
+}
+
+.txtBlanc 
+{
+    color: var(--color-blanc);
+}
+
+.txtVert 
+{
+    color: var(--color-vert);
+}
+
+
+/*Icones*/
+
+i
+{
+    font-size: 2em;
+    padding: 0px 10px;
+    vertical-align: top;
+}
+
+.fa-bars
+{
+    font-size: 1.5em;
+}
+
+/*Tables*/
+.table {
+    margin-top: 40px;
+}
+
+th 
+{
+    font-size: 0.9em;
+}
+
+.link-table
+{
+    font-weight: bold;
+}
+
+.link-table:hover 
+{
+    color: var(--color-vert);
+}
+
+/*Navbar*/
+.header-contact {
+    font-size: 0.8em;
+    padding: 10px 0px;
+}
+
+.navbar-brand 
+{
+    font-family: var(--rock-salt);
+    font-size: 2em;
+}
+
+.navbar-brand:hover 
+{
+    color: var(--color-jaune);
+}
+
+.navbar-nav
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-item
+{
+    padding: 0px 10px;
+}
+
+.nav-link:hover
+{
+    color: var(--color-jaune);
+}
+
+.nav-link:focus 
+{
+    color: var(--color-vert)
+}
+
+
+.dropdown-item 
+{
+    background-color: var(--color-vert);
+    color: var(--color-blanc);
+}
+
+.dropdown-menu 
+{
+    border: none;
+    padding: 0px;
+}
+
+
+/*Boutons et links*/
+
+.btn-jaune-border 
+{
+    border: 1px solid var(--color-jaune);
+    border-radius: 10px;
+    color: var(--color-jaune);
+    font-weight: bold;
+    padding: 15px;
+}
+
+.btn-jaune-border:hover 
+{
+    background-color: var(--color-jaune);
+    color: var(--color-blanc);
+    text-decoration: none; 
+}
+
+.btn-jaune-menu 
+{
+    background-color: var(--color-jaune);
+    border: 1px solid var(--color-jaune);
+    border-radius: 10px;
+    font-weight: bold;
+    color: var(--color-blanc);
+    padding: 10px 15px;
+}
+
+.btn-jaune-menu:hover 
+{
+    background-color: transparent;
+    color: var(--color-jaune);
+}
+
+.btn-jaune-menu:focus, .btn-jaune-border:focus 
+{
+    background-color: var(--color-vert);
+    color: var(--color-blanc);
+}
+
+.btn-form:hover 
+{
+    border: 1px solid var(--color-jaune);
+}
+
+.btn-form:focus 
+{
+    outline: none;
+}
+
+
+/*Images*/
+
+.image
+{
+    background-size: cover;
+}
+
+.img-apropos 
+{
+    background-image: url("/images/jonathan-borba-unsplash-plat-baguette-service.jpg");
+}
+
+.img-eval-create 
+{
+    background-image: url("/images/patrick-schneider-unsplash-resto-lumieres.jpg");
+}
+
+.img-reserv-create 
+{
+    background-image: url("/images/k8-unsplash-full-restaurant.jpg");
+}
+
+.img-contact 
+{
+    background-image: url("/images/pratama-ryan-unsplash-resto-vide.jpg");
+}
+
+.img-promo-edit 
+{
+    background-image: url("/images/mae-mu-unsplash-dumpling-fond-sombre.jpg");
+}
+
+.img-promo-details 
+{
+    background-image: url("/images/nadine-primeau-unsplash-poulet-sucre.jpg");
+}
+
+.img-promo-delete 
+{
+    background-image: url("/images/abhishek-hajare-unsplash-sushi.jpg");
+}
+
+.img-promo-create 
+{
+    background-image: url("/images/oriento-unsplash-bonzai.jpg");
+}
+
+/*label et input*/
+.control-label {
+    font-weight: bold;
+}
+
+input[type=radio]
+{
+    padding: 10px;
+}
+
+
+/*media queries*/
+
+@media screen and (max-width: 1200px) {
+    .nav-item {
+        font-size: 1em;
+        padding: 0px;
+    }
+
+    .navbar-brand {
+        font-size: 1.5em;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .nav-item {
+        font-size: 0.8em;
+        padding: 0px;
+    }
+
+    .navbar-brand {
+        font-size: 1em;
+    }
+
+    .container-btn-promo {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .image
+    {
+        display: none;
+    }
+
+    .logoZhao
+    {
+        font-size: 4em;
+    }
+
+    .colonne-padding
+    {
+        padding: 0px;
+        margin: 0px;
+    }
+
+    .invisibleTableItem
+    {
+        display: none;
+    }
+
+    .nav-item
+    {
+        font-size: 0.6em;
+        padding: 0px;
+    }
+
+    .navbar-brand
+    {
+        font-size: 0.6em;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    body 
+    {
+        font-size: 14px;
+    }
+
+    .courrielAccueil
+    {
+        display: none;
+    }
+
+    .table
+    {
+        font-size: 0.6em;
+    }
+
+    .margin-sm 
+    {
+        padding: 7px;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+

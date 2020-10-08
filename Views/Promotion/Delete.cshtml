@@ -1,0 +1,59 @@
+﻿@model TP1_KarineDunberry.Models.Promotion
+
+@{
+    ViewData["Title"] = "Supprimer une promotion";
+}
+
+
+
+
+
+<div class="row bgBlanc margin-sm">
+    <div class="col-12 col-md-6 colonne-padding">
+        <h1 class="txtJaune">Supprimer une promotion</h1>
+        <h2 class="txtVert">Voulez-vous vraiment supprimer cette promotion?</h2>
+        <dl>
+            <dt>
+                @Html.DisplayNameFor(model => model.IDPromotion)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.IDPromotion)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.TypePromotion)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.TypePromotion)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.TauxApplicable)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.TauxApplicable)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.DateDébut)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.DateDébut)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.DateFin)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.DateFin)
+            </dd>
+        </dl>
+        <form asp-action="Delete">
+            <input type="submit" value="Supprimer" class="btn-jaune-menu btn-form" /> |
+            <a asp-action="Index" class="txtJaune link-table">Retour</a>
+        </form>
+    </div>
+    <div class="col-md-6 colonne-padding image img-promo-delete"></div>
+</div>
