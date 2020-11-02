@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AuthorizationService
+
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="utf-8" />
@@ -31,6 +34,7 @@
                     <span class="navbar-toggler-icon d-flex justify-content-center align-items-center"><i class="fas fa-bars txtVert"></i></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <partial name="_LoginPartial" />
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
                             <a class="nav-link txtBlanc" asp-area="" asp-controller="Home" asp-action="Index">Accueil</a>
@@ -43,24 +47,45 @@
                                 Menu
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" asp-controller="Menu" asp-action="TelechargerMenu">Télécharger le menu</a>
-                                <a class="dropdown-item" asp-controller="Menu" asp-action="TelechargerCarteVins">Télécharger la carte des vins</a>
+                                <a class="dropdown-item" asp-controller="Menu" asp-action="TelechargerMenu" target="_blank">Télécharger le menu</a><!--target blank pour ouvrir dans une nouvelle fenêtre-->
+                                <a class="dropdown-item" asp-controller="Menu" asp-action="TelechargerCarteVins" target="_blank">Télécharger la carte des vins</a>
                             </div>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link txtBlanc" asp-area="" asp-controller="Galerie" asp-action="Index">Galerie</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link txtBlanc" asp-area="" asp-controller="Evaluation" asp-action="Create">Évaluation</a>
+                            @if ((await AuthorizationService.AuthorizeAsync(User, "AdministrateurSeulement")).Succeeded)
+                            {
+                                <a class="nav-link txtBlanc" asp-area="" asp-controller="Evaluations" asp-action="IndexAdministrateur">Évaluation</a>
+                            }
+                            else
+                            {
+                                <a class="nav-link txtBlanc" asp-area="" asp-controller="Evaluations" asp-action="IndexUtilisateurConnecte">Évaluation</a>
+                            }
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link txtBlanc" asp-area="" asp-controller="Promotion" asp-action="Index">Promotions</a>
+                            @if ((await AuthorizationService.AuthorizeAsync(User, "AdministrateurSeulement")).Succeeded)
+                            {
+                                <a class="nav-link txtBlanc" asp-area="" asp-controller="Promotions" asp-action="IndexAdministrateur">Promotions</a>
+                            }
+                            else
+                            {
+                                <a class="nav-link txtBlanc" asp-area="" asp-controller="Promotions" asp-action="IndexUtilisateur">Promotions</a>
+                            }
                         </li>
                         <li class="nav-item">
                             <a class="nav-link txtBlanc" asp-area="" asp-controller="Contact" asp-action="Index">Contact</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link btn-jaune-menu" asp-area="" asp-controller="Reservation" asp-action="Create">Réservations</a>
+                            @if ((await AuthorizationService.AuthorizeAsync(User, "AdministrateurSeulement")).Succeeded)
+                            {
+                                <a class="nav-link btn-jaune-menu" asp-area="" asp-controller="Reservations" asp-action="IndexAdministrateur">Réservations</a>
+                            }
+                            else
+                            {
+                                <a class="nav-link btn-jaune-menu" asp-area="" asp-controller="Reservations" asp-action="IndexUtilisateurConnecte">Réservations</a>
+                            }
                         </li>
                     </ul>
                 </div>

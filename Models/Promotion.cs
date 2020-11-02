@@ -11,7 +11,7 @@ namespace TP1_KarineDunberry.Models
     {
         [DisplayName("ID")]
         [Required(ErrorMessage = "L'id de la promotion est requis.")]
-        public int IDPromotion { get; set; }
+        public int PromotionID { get; set; }
         [DisplayName("Type de promotion")]
         [Required(ErrorMessage = "Le type de promotion est requis.")]
         public TypePromotion TypePromotion { get; set; }
@@ -27,7 +27,7 @@ namespace TP1_KarineDunberry.Models
         public DateTime DateDébut { get; set; }
         [DisplayName("Date de fin")]
         [DisplayFormat(DataFormatString = "{0:dd MMM yyyy}")]
-        public DateTime DateFin { get; set; } 
+        public DateTime? DateFin { get; set; }  //? veut dire que DateTime optionnelle, sinon le DateTime par défaut le met required
 
         internal int FindIndex(Func<object, bool> p)
         {

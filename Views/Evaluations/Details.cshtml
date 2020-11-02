@@ -1,0 +1,76 @@
+﻿@model TP1_KarineDunberry.Models.Evaluation
+@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AuthorizationService
+
+@{
+    ViewData["Title"] = "Détails de l'évaluation";
+}
+
+<div class="row bgBlanc margin-sm">
+    <div class="col-12 col-md-6 colonne-padding">
+        <h1 class="txtJaune">Détails de l'évaluation</h1>
+        <dl>
+            <dt>
+                @Html.DisplayNameFor(model => model.Prénom)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Prénom)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Nom)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Nom)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.TypeReservation)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.TypeReservation)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Courriel)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Courriel)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.DateVisite)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.DateVisite)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.QualitéRepas)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.QualitéRepas)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.QualitéService)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.QualitéService)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Commentaires)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Commentaires)
+            </dd>
+        </dl>
+        <div>
+            @if ((await AuthorizationService.AuthorizeAsync(User, "AdministrateurSeulement")).Succeeded)
+            {
+                <a asp-action="IndexAdministrateur" class="txtJaune link-table">Retour</a>
+            }
+            else
+            {
+                <a asp-action="Edit" asp-route-id="@Model.EvaluationID" class="btn-jaune-menu btn-form">Modifier</a> <span>|</span>
+                <a asp-action="IndexUtilisateurConnecte" class="txtJaune link-table">Retour</a>
+            }
+
+        </div>
+    </div>
+    <div class="col-md-6 colonne-padding image img-promo-details"></div>
+</div>

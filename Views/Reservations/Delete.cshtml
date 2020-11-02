@@ -1,0 +1,78 @@
+﻿@model TP1_KarineDunberry.Models.Reservation
+@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AuthorizationService
+
+@{
+    ViewData["Title"] = "Supprimer une réservation";
+}
+
+<div class="row bgBlanc margin-sm">
+    <div class="col-12 col-md-6 colonne-padding">
+        <h1 class="txtJaune">Supprimer une réservation</h1>
+        <h2 class="txtVert">Voulez-vous vraiment supprimer cette réservation?</h2>
+        <dl>
+            <dt>
+                @Html.DisplayNameFor(model => model.Prénom)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Prénom)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Nom)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Nom)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.TypeReservation)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.TypeReservation)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Courriel)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Courriel)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.DateHeure)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.DateHeure)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Téléphone)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Téléphone)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.nbPersonnes)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.nbPersonnes)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.StatutReservation)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.StatutReservation)
+            </dd>
+        </dl>
+
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="ReservationID" />
+            <input type="submit" value="Supprimer" class="btn-jaune-menu btn-form" /> |
+            @if ((await AuthorizationService.AuthorizeAsync(User, "AdministrateurSeulement")).Succeeded)
+            {
+                <a asp-action="IndexAdministrateur" class="txtJaune link-table">Retour</a>
+            }
+            else
+            {
+                <a asp-action="IndexUtilisateurConnecte" class="txtJaune link-table">Retour</a>
+            }
+        </form>
+    </div>
+    <div class="col-md-6 colonne-padding image img-promo-delete"></div>
+</div>

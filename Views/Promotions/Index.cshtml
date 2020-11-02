@@ -1,0 +1,101 @@
+﻿@model IEnumerable<TP1_KarineDunberry.Models.Promotion>
+@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AuthorizationService
+
+
+@{
+    ViewData["Title"] = "Promotions";
+}
+
+
+
+
+<div class="row bgBlanc margin-sm">
+    <div class="col-12 colonne-padding">
+        <h1 class="txtJaune text-center">Promotions</h1>
+        <p class="container-btn-promo">
+            @if ((await AuthorizationService.AuthorizeAsync(User, "AdministrateurSeulement")).Succeeded)
+            {
+                <a asp-action="Create" class="btn-jaune-border btn-form text-decoration-none">Nouvelle promotion</a>
+            }
+        </p>
+        @if ((await AuthorizationService.AuthorizeAsync(User, "AdministrateurSeulement")).Succeeded)
+        {
+            <a class="txtJaune link-table p-2" asp-area="" asp-controller="Promotions" asp-action="IndexAdministrateurComptoir">Comptoir</a>
+            <a class="txtJaune link-table p-2" asp-area="" asp-controller="Promotions" asp-action="IndexAdministrateurSalleAManger">Salle à manger</a>
+            <a class="txtJaune link-table p-2" asp-area="" asp-controller="Promotions" asp-action="IndexAdministrateurLivraison">Livraison</a>
+            <a class="txtJaune link-table p-2" asp-area="" asp-controller="Promotions" asp-action="IndexAdministrateur">Tous</a>
+        }
+        else
+        {
+            <a class="txtJaune link-table p-2" asp-area="" asp-controller="Promotions" asp-action="IndexUtilisateurComptoir">Comptoir</a>
+            <a class="txtJaune link-table p-2" asp-area="" asp-controller="Promotions" asp-action="IndexUtilisateurSalleAManger">Salle à manger</a>
+            <a class="txtJaune link-table p-2" asp-area="" asp-controller="Promotions" asp-action="IndexUtilisateurLivraison">Livraison</a>
+            <a class="txtJaune link-table p-2" asp-area="" asp-controller="Promotions" asp-action="IndexUtilisateur">Tous</a>
+        }
+        <table class="table">
+            <thead class="txtVert">
+                <tr>
+                    <th style="width: 5%; display:none;" class="invisibleTableItem">
+                        @Html.DisplayNameFor(model => model.PromotionID)
+                    </th>
+                    <th style="width: 15%;">
+                        @Html.DisplayNameFor(model => model.TypePromotion)
+                    </th>
+                    <th style="width: 5%;">
+                        @Html.DisplayNameFor(model => model.TauxApplicable)
+                    </th>
+                    <th style="width: 20%;" class="invisibleTableItem">
+                        @Html.DisplayNameFor(model => model.Description)
+                    </th>
+                    <th style="width: 15%;">
+                        @Html.DisplayNameFor(model => model.DateDébut)
+                    </th>
+                    <th style="width: 15%;" class="invisibleTableItem">
+                        @Html.DisplayNameFor(model => model.DateFin)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="invisibleTableItem" style="display:none;">
+                            @Html.DisplayFor(modelItem => item.PromotionID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TypePromotion)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TauxApplicable)
+                        </td>
+                        <td class="invisibleTableItem">
+                            @Html.DisplayFor(modelItem => item.Description)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DateDébut)
+                        </td>
+                        <td class="invisibleTableItem">
+                            @Html.DisplayFor(modelItem => item.DateFin)
+                        </td>
+                        <td>
+                            @if ((await AuthorizationService.AuthorizeAsync(User, "AdministrateurSeulement")).Succeeded)
+                            {
+                                @Html.ActionLink("Modifier", "Edit", new { id = item.PromotionID }, new { @class = "txtJaune link-table" }) <span>|</span>
+                            }
+
+                            @Html.ActionLink("Voir", "Details", new { id = item.PromotionID }, new { @class = "txtJaune link-table" })
+
+                            @if ((await AuthorizationService.AuthorizeAsync(User, "AdministrateurSeulement")).Succeeded)
+                            {
+                                <span>|</span>
+                                @Html.ActionLink("Supprimer", "Delete", new { id = item.PromotionID }, new { @class = "txtJaune link-table" })
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

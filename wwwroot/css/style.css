@@ -61,7 +61,7 @@ h1
 {
     font-family: var(--rock-salt);
     font-size: 1.5em;
-    margin: 0px 0px 35px;
+    margin: 10px 0px 35px;
 }
 
 h2
@@ -129,7 +129,7 @@ i
 
 /*Tables*/
 .table {
-    margin-top: 40px;
+    margin-top: 10px;
 }
 
 th 
@@ -178,12 +178,7 @@ th
 
 .nav-link:hover
 {
-    color: var(--color-jaune);
-}
-
-.nav-link:focus 
-{
-    color: var(--color-vert)
+    color: var(--color-jaune) !important;
 }
 
 
@@ -198,6 +193,7 @@ th
     border: none;
     padding: 0px;
 }
+
 
 
 /*Boutons et links*/
@@ -237,7 +233,7 @@ th
 .btn-jaune-menu:focus, .btn-jaune-border:focus 
 {
     background-color: var(--color-vert);
-    color: var(--color-blanc);
+    color: var(--color-blanc) !important;
 }
 
 .btn-form:hover 

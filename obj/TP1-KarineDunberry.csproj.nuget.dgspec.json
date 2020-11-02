@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kdang\\Documents\\Etudes\\Techno connexes\\TP\\TP1-KarineDunberry-sans-mot-de-passe\\TP1-KarineDunberry.csproj": {}
+    "C:\\Users\\kdang\\Documents\\Etudes\\Techno connexes\\TP\\TP2-KarineDunberry - sans-mot-de-passe\\TP1-KarineDunberry.csproj": {}
   },
   "projects": {
-    "C:\\Users\\kdang\\Documents\\Etudes\\Techno connexes\\TP\\TP1-KarineDunberry-sans-mot-de-passe\\TP1-KarineDunberry.csproj": {
+    "C:\\Users\\kdang\\Documents\\Etudes\\Techno connexes\\TP\\TP2-KarineDunberry - sans-mot-de-passe\\TP1-KarineDunberry.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kdang\\Documents\\Etudes\\Techno connexes\\TP\\TP1-KarineDunberry-sans-mot-de-passe\\TP1-KarineDunberry.csproj",
+        "projectUniqueName": "C:\\Users\\kdang\\Documents\\Etudes\\Techno connexes\\TP\\TP2-KarineDunberry - sans-mot-de-passe\\TP1-KarineDunberry.csproj",
         "projectName": "TP1-KarineDunberry",
-        "projectPath": "C:\\Users\\kdang\\Documents\\Etudes\\Techno connexes\\TP\\TP1-KarineDunberry-sans-mot-de-passe\\TP1-KarineDunberry.csproj",
+        "projectPath": "C:\\Users\\kdang\\Documents\\Etudes\\Techno connexes\\TP\\TP2-KarineDunberry - sans-mot-de-passe\\TP1-KarineDunberry.csproj",
         "packagesPath": "C:\\Users\\kdang\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kdang\\Documents\\Etudes\\Techno connexes\\TP\\TP1-KarineDunberry-sans-mot-de-passe\\obj\\",
+        "outputPath": "C:\\Users\\kdang\\Documents\\Etudes\\Techno connexes\\TP\\TP2-KarineDunberry - sans-mot-de-passe\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -42,6 +42,32 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.9, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[3.1.9, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[3.1.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.9, )"
+            },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[3.1.4, )"

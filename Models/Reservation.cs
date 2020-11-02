@@ -9,6 +9,8 @@ namespace TP1_KarineDunberry.Models
 {
     public class Reservation
     {
+        [DisplayName("ID")]
+        public int ReservationID { get; set; }
         [MaxLength(100, ErrorMessage = "Le champ ne doit pas contenir plus de 100 caractères.")]
         [Required(ErrorMessage = "Le prénom est requis.")]
         public string Prénom { get; set; }
@@ -33,13 +35,26 @@ namespace TP1_KarineDunberry.Models
         [Range(1, 50, ErrorMessage = "Veuillez choisir une valeur entre 1 et 50.")]
         [Required(ErrorMessage = "Le nombre de personnes est requis.")]
         public int nbPersonnes { get; set; }
+        [DisplayName("Statut de la réservation")]
+        public StatutReservation StatutReservation { get; set; }
+
     }
 
     public enum TypeReservation
     {
         [Display(Name="Salle à manger")]
         SalleAManger,
-        [Display(Name = "Salon privé (évènements")]
+        [Display(Name = "Salon privé (évènements)")]
         SalonPrive
+    }
+
+    public enum StatutReservation
+    {
+        [Display(Name = "Non confirmée")]
+        NonConfirmee,
+        [Display(Name = "Confirmée")]
+        Confirmee
+
+
     }
 }

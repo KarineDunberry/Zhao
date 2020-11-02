@@ -1,8 +1,18 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AuthorizationService
+
+@{
     ViewData["Title"] = "Accueil";
 }
 
 <div class="text-center mainHome">
     <div class="logoZhao txtVert">Zhào</div>
-    <a href="/Reservation/Create" class="btn-jaune-border">Réservation</a>
+    @if ((await AuthorizationService.AuthorizeAsync(User, "AdministrateurSeulement")).Succeeded)
+    {
+        <a href="/Reservations/IndexAdministrateur" class="btn-jaune-border">Réservation</a>
+    }
+    else
+    {
+        <a href="/Reservations/IndexUtilisateurConnecte" class="btn-jaune-border">Réservation</a>
+    }
 </div>

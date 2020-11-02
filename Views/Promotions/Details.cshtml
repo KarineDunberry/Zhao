@@ -1,0 +1,60 @@
+﻿@model TP1_KarineDunberry.Models.Promotion
+@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AuthorizationService
+
+@{
+    ViewData["Title"] = "Détails de la promotion";
+}
+
+
+
+
+<div class="row bgBlanc margin-sm">
+    <div class="col-12 col-md-6 colonne-padding">
+        <h1 class="txtJaune">Détails de la promotion</h1>
+        <dl>
+            <dt>
+                @Html.DisplayNameFor(model => model.TypePromotion)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.TypePromotion)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.TauxApplicable)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.TauxApplicable)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.DateDébut)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.DateDébut)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.DateFin)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.DateFin)
+            </dd>
+        </dl>
+        <div>
+            @if ((await AuthorizationService.AuthorizeAsync(User, "AdministrateurSeulement")).Succeeded)
+            {
+                @Html.ActionLink("Modifier", "Edit", new { id = Model.PromotionID }, new { @class = "btn-jaune-menu btn-form" }) <span>|</span>
+                <a asp-action="IndexAdministrateur" class="txtJaune link-table">Retour</a>
+            }
+            else
+            {
+                <a asp-action="IndexUtilisateur" class="txtJaune link-table">Retour</a>
+            }
+        </div>
+    </div>
+    <div class="col-md-6 colonne-padding image img-promo-details"></div>
+</div>

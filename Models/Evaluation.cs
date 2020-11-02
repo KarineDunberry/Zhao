@@ -12,6 +12,8 @@ namespace TP1_KarineDunberry.Models
 {
     public class Evaluation
     {
+        [DisplayName("ID")]
+        public int EvaluationID { get; set; } //ajout de l'ID
         [MaxLength(100, ErrorMessage = "Le champ ne doit pas contenir plus de 100 caractères.")]
         [Required(ErrorMessage = "Le prénom est requis.")]
         public string Prénom { get; set; }

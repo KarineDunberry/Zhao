@@ -1,0 +1,72 @@
+﻿@model TP1_KarineDunberry.Models.Reservation
+@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AuthorizationService
+
+@{
+    ViewData["Title"] = "Réservation";
+}
+
+
+
+<div class="row bgBlanc margin-sm">
+    <div class="col-12 col-md-6 colonne-padding">
+        <h1 class="txtJaune">Réservation</h1>
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Prénom" class="control-label"></label>
+                <input asp-for="Prénom" class="form-control" autofocus />
+                <span asp-validation-for="Prénom" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nom" class="control-label"></label>
+                <input asp-for="Nom" class="form-control" />
+                <span asp-validation-for="Nom" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TypeReservation" class="control-label"></label><br />
+                @Html.RadioButtonFor(m => m.TypeReservation, TypeReservation.SalleAManger, new { @class = "radio-btn1" })
+                <label>Salle à manger</label><br />
+                @Html.RadioButtonFor(m => m.TypeReservation, TypeReservation.SalonPrive)
+                <label>Salon privé (évènements)</label>
+                <br />
+                <span asp-validation-for="TypeReservation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Courriel" class="control-label"></label>
+                <input asp-for="Courriel" class="form-control" />
+                <span asp-validation-for="Courriel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateHeure" class="control-label"></label>
+                <input type="datetime-local" asp-for="DateHeure" class="form-control" value="" />
+                <span asp-validation-for="DateHeure" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Téléphone" class="control-label"></label>
+                <input asp-for="Téléphone" class="form-control" placeholder="450-000-0000" />
+                <span asp-validation-for="Téléphone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="nbPersonnes" class="control-label"></label>
+                <input asp-for="nbPersonnes" class="form-control" value="0" /> <!--le asp-for est important pour que notre validation s'affiche-->
+                <span asp-validation-for="nbPersonnes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StatutReservation" class="control-label"></label>
+                    @Html.DropDownListFor(m => m.StatutReservation, Html.GetEnumSelectList(typeof(StatutReservation)),
+                                       new { @class = "form-control", @disabled = true })
+                <span asp-validation-for="StatutReservation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-controller="Reservations" asp-action="Create" type="submit" value="Envoyer" class="btn-jaune-menu btn-form" /> |
+                <a asp-action="IndexUtilisateurConnecte" class="txtJaune link-table">Retour à la liste</a>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-6 colonne-padding image img-reserv-create"></div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
